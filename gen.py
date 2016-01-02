@@ -227,7 +227,7 @@ class Commit(object):
             content = content[:-1].replace('\n    ', '\n').decode(settings.CHARSET)
         else:
             title = title[:-1]
-        obj = cls(id, author, date, title.decode(settings.CHARSET), content, merge_ids)
+        obj = cls(id, author, date, title.decode(settings.CHARSET, 'ignore'), content, merge_ids)
         cls.dictionary[id] = obj
         cls.short_dictionary[id[:7]] = obj
         return obj
